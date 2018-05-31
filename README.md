@@ -1,7 +1,9 @@
-# Status Change.
+# Web Client Status Change
 
-Change your current Discord playing status on the Webclient version.
+Update your status in the webclient version of Discord! 
 
-[Twitter](https://twitter.com/notfluted)
+Please **report bugs** to the **Issues** Section of the Repo.
+
+For more information follow me on [Twitter](https://twitter.com/notfluted)
 
 
