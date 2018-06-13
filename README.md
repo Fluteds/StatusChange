@@ -1,9 +1,57 @@
+
 # Web Client Status Change
 
-Update your status in the webclient version of Discord! 
+A Custom 'Currently Playing' Game Status Changer plugin for Discord's WebClient (discordapp.com)
 
-Please **report bugs** to the **issues** Section of the Repo.
+## Installation
 
-For more information follow me on [Twitter](https://twitter.com/notfluted)
+To install the script, it is advised that you use [Greasemonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/), [Violentmonkey](https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag?hl=en) or [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 
+After you've downloaded any of the above, go the the link below! 
 
+`https://rawgit.com/fluteds/StatusChange/master/status.user.js`
+
+or [**Click Here**](https://rawgit.com/fluteds/StatusChange/master/status.user.js)
+
+## Usage
+
+*How To Use:*
+
+1. By the Settings Cog there should be a gaming console
+2. Click on the gaming console
+3. Allow Discordapp to display/show popups
+4. Enter your custom status
+5. That's it! You now have a custom game status
+
+## Contributing
+
+1. Fork the repo!
+2. Create your branch 
+3. Commit your changes
+4. Push to the branch
+5. Submit a pull request (Please be descriptive as you can as to what you've added/changed)
+
+## Bugs And Errors
+
+Please submit any bugs/errors to the **Issues** section of this Repo
+
+## Credits
+
+By [Fluted](https://twitter.com/notfluted) 2018
+
+## License
+
+`Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.` 
+ 
+ This Script is **NOT** Inflicted with Discord Inc.
+ 
+ **No Copyright Is Intended**
+ 
