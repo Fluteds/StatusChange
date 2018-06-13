@@ -1,16 +1,17 @@
 // ==UserScript==
 // @author      Fluted
-// @namespace   https://github.com/fluteds
-// @name        Custom Game Status for Discord
-// @description Set your own custom playing Discord status! Granted though Discord's websockets/webhooks.
-// @include     https://discordapp.com/channels/*
-// @version     1.9.0
+// @namespace   https://github.com/notfluted
+// @name        Discord Currently Playing Game Status Script
+// @description Set your own Custom 'currently playing' Discord status! Granted though Discord's websockets.
+// @include     https://discordapp.com/*
+// @version     1.9.4
 // @grant       GM_unsafeWindow
 // @run-at      document-end
 // ==/UserScript==
 
 /*
-	Custom Game Status for Discord - Copyright (c) Fluted, 2018
+	Discord's Currently Playing Game Status
+        Copyright (c) Fluted, 2018 (https://github.com/fluteds)
     
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
@@ -23,9 +24,8 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-  
-  NOTE: IF CONNECTED TO VOICE CHANNEL ON RELOAD, THE EXTENSION WILL NOT LOAD
-  FIX: DISCONNECT VOICE AND REFRESH WEBPAGE! (This error is being worked on!)
+	
+	N/A: Refreshing Page REMOVES Status.
 
 */
 
@@ -38,7 +38,7 @@ if (typeof exportFunction == "undefined")
 unsafeWindow.WebSocket.prototype.send = exportFunction(function(data) {
 	if (unsafeWindow._ws_ != this) {
 		unsafeWindow._ws_ = this;
-		console.log("[DiscordGameStatus] Grabbed Websocket object through the send() hook:", this);
+		console.log("Custom Discord Game Status Script: Discord Grabbed A Websocket object through the send() hook:", this);
 	}
 	var data_tab = JSON.parse(data);
 	if (data_tab && data_tab.op == 3) {
@@ -55,19 +55,7 @@ unsafeWindow.WebSocket.prototype.send = exportFunction(function(data) {
 	var button_icon = 'http://www.stickpng.com/assets/images/58f36427a4fa116215a923cf.png';
 	var game_name = '';
 
-	// UI/PopUp
-
-	function gameUI ()
-	{
-		game_name = prompt("Please enter your game name below: \nNote: Box left blank removes status");
-		if (game_name === null) return;
-		var msg = {"op": 3, "d": {"status": unsafeWindow._dgs_last_status_, "since": 0, "afk": false}};
-		msg.d.game = game_name.length > 0 ? {"name": game_name, "type": 0} : null; // 0: playing, 1: streaming, 2: listening, 3: watching, 4+: unknown.
-		unsafeWindow._dgs_game_entry_ = msg.d.game;
-		unsafeWindow._ws_.send(JSON.stringify(msg));
-	}
-
-  // Tooltip Styling
+ // Tooltip
   
 	function tooltipUI (ev, onoff)
 	{
@@ -81,7 +69,7 @@ unsafeWindow.WebSocket.prototype.send = exportFunction(function(data) {
 				var rect = obj.getBoundingClientRect();
 				left = rect.left - (game_name ? game_name.length * 1.5 : 0) - rect.width * 1.4;
 			}
-			t[0].innerHTML = '<div class="tooltip tooltip-top tooltip-black" style="position:fixed; left:' + left + 'px; left:218px; bottom:51px;">' + (game_name && game_name.length > 0 ? 'Game Status: ' + game_name : 'Set A Game Status') + '</div>';
+			t[0].innerHTML = '<div class="tooltip tooltip-top tooltip-black" style="position:fixed; left:' + left + 'px; left:218px; bottom:51px;">' + (game_name && game_name.length > 0 ? 'Game Status: ' + game_name : 'Set Your Game Status') + '</div>';
 		} else {
 			t[0].innerHTML = '';
 		}
@@ -90,7 +78,20 @@ unsafeWindow.WebSocket.prototype.send = exportFunction(function(data) {
 	function tooltipUIon  (ev) { return tooltipUI (ev, true);  }
 	function tooltipUIoff (ev) { return tooltipUI (ev, false); }
 
-	// wait for UI.js
+	// UI
+
+	function gameUI ()
+	{
+		game_name = prompt("What Are You Playing?\nNote: Leaving The Box Empty Removes Status");
+		if (game_name === null) return;
+		var msg = {"op": 3, "d": {"status": unsafeWindow._dgs_last_status_, "since": 0, "afk": false}};
+		msg.d.game = game_name.length > 0 ? {"name": game_name, "type": 0} : null; // 0: playing, 1: streaming, 2: listening, 3: watching, 4+: unknown. N/A: Use other options at own risk, this could be included as a 'Self Bot' which is against Discord's T&C.
+		unsafeWindow._dgs_game_entry_ = msg.d.game;
+		unsafeWindow._ws_.send(JSON.stringify(msg));
+	}
+
+	// Wait For UI
+	
 	var interval_UI_id = null;
 	function interval_UI ()
 	{
