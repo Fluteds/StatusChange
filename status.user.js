@@ -4,7 +4,7 @@
 // @name        Discord Currently Playing Game Status Script
 // @description Set your own Custom 'currently playing' Discord status! Granted though Discord's websockets.
 // @include     https://discordapp.com/*
-// @version     1.9.4
+// @version     1.9.5
 // @grant       GM_unsafeWindow
 // @run-at      document-end
 // ==/UserScript==
