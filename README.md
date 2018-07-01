@@ -13,6 +13,8 @@ After you've downloaded any of the above, go the the link below!
 
 or __[**Click Here**](https://rawgit.com/fluteds/StatusChange/master/status.user.js)__
 
+or click the website above in the repo!
+
 ## Usage
 
 *How To Use:*
