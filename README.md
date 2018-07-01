@@ -11,17 +11,17 @@ After you've downloaded any of the above, go the the link below!
 
 `https://rawgit.com/fluteds/StatusChange/master/status.user.js`
 
-or [**Click Here**](https://rawgit.com/fluteds/StatusChange/master/status.user.js)
+or __[**Click Here**](https://rawgit.com/fluteds/StatusChange/master/status.user.js)__
 
 ## Usage
 
 *How To Use:*
 
-1. By the Settings Cog there should be a gaming console
+1. By the Settings Cog there should be a gaming console icon
 2. Click on the gaming console
 3. Allow Discordapp to display/show popups
 4. Enter your custom status
-5. That's it! You now have a custom game status
+5. That's it! You now have a custom game status (to check current status hover over the console icon)
 
 ## Contributing
 
@@ -35,9 +35,16 @@ or [**Click Here**](https://rawgit.com/fluteds/StatusChange/master/status.user.j
 
 Please submit any bugs/errors to the **Issues** section of this Repo
 
+### Future Developments
+
+- Enable the script whilst connected to a voice channel on refresh
+- Retain the same status on cancellation of the pop up selector
+
+
 ## Credits
 
-By [Fluted](https://twitter.com/notfluted) 2018
+[Discord API](https://github.com/discordapp/discord-api-docs)
+
 
 ## License
 
