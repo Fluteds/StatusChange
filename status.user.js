@@ -4,6 +4,7 @@
 // @name        Discord Currently Playing Game Status Script
 // @description Set your own Custom 'currently playing' Discord status! Granted though Discord's websockets.
 // @include     https://discordapp.com/*
+// @include     https://discordapp.com/activity
 // @version     1.9.5
 // @grant       GM_unsafeWindow
 // @run-at      document-end
@@ -25,7 +26,9 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 	
-	N/A: Refreshing Page REMOVES Status.
+	N/A: Refreshing Page REMOVES Status and refreshing whilst CONNECTED TO VOICE
+	     Doesn't load the script. Disconnect from voice and refresh to re enable 
+	     the script.
 
 */
 
@@ -52,7 +55,7 @@ unsafeWindow.WebSocket.prototype.send = exportFunction(function(data) {
 (function() {
 	'use strict';
 
-	var button_icon = 'http://www.stickpng.com/assets/images/58f36427a4fa116215a923cf.png';
+	var button_icon = 'http://controllercreator.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/l/glossywhite_1.png';
 	var game_name = '';
 
  // Tooltip
